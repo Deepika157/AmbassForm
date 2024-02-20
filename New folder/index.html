@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CONTACT FORM</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="MyForm" method="POST">
+            <div class="heading">
+                <h5>CONTACT FORM</h5>
+            </div>
+            <label for="name">FIRST NAME:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="lastname">LAST NAME:</label>
+            <input type="text" id="lastname" name="lastname"><br>
+
+            <label for="email">EMAIL ADDRESS:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="phone">PHONE NUMBER:</label>
+            <input type="text" id="phone" name="phone" required><br>
+
+            <label for="dob">DOB:</label>
+            <input type="text" id="dob" name="dob" required><br>
+
+            <label for="gender">GENDER:</label>
+            <input type="text" id="gender" name="gender" required><br>
+
+            <label for="niche">NICHE:</label>
+            <input type="text" id="niche" name="niche" required><br>
+
+            <label for="insta">INSTAGRAM HANDLE:</label>
+            <input type="text" id="insta" name="insta" required><br>
+
+            <label for="followers">HOW MANY INSTAGRAM FOLLOWERS DO YOU HAVE?:</label>
+            <input type="text" id="followers" name="followers" required><br>
+
+            <p><label for="hire">WHY WE HIRE YOU:</label></p>
+            <textarea id="hire" name="hire" rows="4" cols="50"> </textarea><br>
+
+
+            <button type="submit" onclick="submit()">Submit</button>
+        </div>
+        <div action="/data" method="GET">
+            <button type="submit" onclick="submitTo()">Extract</button>
+        </div>
+    </div>
+
+    <script>
+        function submit() {
+            const name = document.getElementById("name").value
+            const lastname = document.getElementById("lastname").value
+            const email = document.getElementById("email").value
+            const phone = document.getElementById("phone").value
+            const dob = document.getElementById("dob").value
+            const gender = document.getElementById("gender").value
+            const niche = document.getElementById("niche").value
+            const insta = document.getElementById("insta").value
+            const followers = document.getElementById("followers").value
+            const hire = document.getElementById("hire").value
+           
+
+
+            fetch('http://localhost:5000/submitData', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, lastname, email, phone, dob, gender, niche, insta, followers, hire})
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Success:', data);
+
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+
+                });
+        }
+        async function submitTo() {
+            const name = document.getElementById("name").value
+            const lastname = document.getElementById("lastname").value
+            const email = document.getElementById("email").value
+            const phone = document.getElementById("phone").value
+            const dob = document.getElementById("dob").value
+            const gender = document.getElementById("gender").value
+            const niche = document.getElementById("niche").value
+            const insta = document.getElementById("insta").value
+            const followers = document.getElementById("followers").value
+            const hire = document.getElementById("hire").value
+            
+
+            const csvfile = await fetch('http://localhost:5000/data', {
+                method: 'GET',
+
+            })
+            console.log(csvfile)
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
