@@ -29,11 +29,15 @@ const dataSchema = new mongoose.Schema({
     email: String,
     phone: String,
     dob: String,
+    location:String,
     gender: String,
     niche: String,
-    insta: String,
+    channel:String,
     followers: String,
-    hire: String
+    reach:String,
+    engage:String,
+    hire: String,
+    fees:String
 });
 
 
@@ -48,11 +52,14 @@ app.post('/submitData', async (req, res) => {
         const phone = req.body.phone;
         const lastname = req.body.lastname;
         const dob = req.body.dob;
+        const location= req.body.location;
         const gender = req.body.gender;
         const niche = req.body.niche;
-        const insta = req.body.insta;
+        const channel= req.body.channel;
+        const reach = req.body.reach;
         const followers = req.body.followers;
         const hire = req.body.hire;
+        const fees= req.body.fees;
 
         console.log(req.body)
 
@@ -62,10 +69,14 @@ app.post('/submitData', async (req, res) => {
             email,
             phone,
             dob,
+            location,
             gender,
             niche,
-            insta,
+            channel,
             followers,
+            reach,
+            engage,
+            fees,
             hire
         });
 
@@ -94,11 +105,15 @@ app.get('/data', async (req, res) => {
                 lastname: document.lastname,
                 email: document.email,
                 phone: document.phone,
+                location: document.location,
                 dob: document.dob,
                 gender: document.gender,
                 niche: document.niche,
-                insta: document.insta,
+                channel: document.channel,
                 followers: document.followers,
+                reach:document.reach,
+                engage:document.engage,
+                fees:document.fees,
                 hire: document.hire
             }
         })
@@ -110,11 +125,15 @@ app.get('/data', async (req, res) => {
                 { id: 'lastname', title: 'LAST NAME' },
                 { id: 'email', title: 'EMAIL ADDRESS' },
                 { id: 'dob', title: 'DOB' },
+                {id: 'location', title:'LOCATION'},
                 { id: 'gender', title: 'GENDER' },
                 { id: 'niche', title: 'NICHE' },
-                { id: 'insta', title: 'INSTAGRAM HANDLE' },
+                { id: 'channel', title: 'INSTAGRAM HANDLE' },
                 { id: 'followers', title: 'HOW MANY INSTAGRAM FOLLOWERS DO YOU HAVE?' },
-                { id: 'hire', title: 'WHY WE HIRE YOU?' }
+                {id: 'reach', title: 'REACH'},
+                {id: 'engage', title:'ENGAGEMENT'},
+                {id:'fees', title:'FEES'},
+                {id: 'hire', title: 'WHY WE HIRE YOU?'}
             ]
         });
         await csvWriter.writeRecords(documents);

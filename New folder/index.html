@@ -12,39 +12,55 @@
     <div class="container">
         <div id="MyForm" method="POST">
             <div class="heading">
-                <h5>CONTACT FORM</h5>
+                <h5>AMBASSADOR PROGRAM FORM</h5>
             </div>
-            <label for="name">FIRST NAME:</label>
+            <label for="name"> NAME:[Because your parents did ponder a while before naming you.]</label>
             <input type="text" id="name" name="name" required><br>
 
-            <label for="lastname">LAST NAME:</label>
+            <label for="lastname">LAST NAME:[Let's make it official, shall we?]</label>
             <input type="text" id="lastname" name="lastname"><br>
 
-            <label for="email">EMAIL ADDRESS:</label>
+            <label for="email">PRIMARY EMAIL ADDRESS: [So we can slide into your DMs, officially.]</label>
             <input type="email" id="email" name="email" required><br>
 
-            <label for="phone">PHONE NUMBER:</label>
+            <label for="location">LOCATION: [So we can slide into your DMs, officially.]</label>
+            <input type="text" id="location" name="location" required><br>
+
+            <label for="phone">PHONE NUMBER: [Don't worry, we won't call you only to hang up.]</label>
             <input type="text" id="phone" name="phone" required><br>
 
-            <label for="dob">DOB:</label>
+            <label for="dob">DOB: [Just confirming you're not actually a time traveler.]</label>
             <input type="text" id="dob" name="dob" required><br>
 
-            <label for="gender">GENDER:</label>
+            <label for="gender">WHAT GENDER DO YOU IDENTIFY BEST AS?: [We respect all flavors of the human spectrum.]</label>
             <input type="text" id="gender" name="gender" required><br>
 
-            <label for="niche">NICHE:</label>
+            <label for="niche">NICHE:[What’s your battleground? Fashion? Fitness? Food fights?]</label>
             <input type="text" id="niche" name="niche" required><br>
 
-            <label for="insta">INSTAGRAM HANDLE:</label>
-            <input type="text" id="insta" name="insta" required><br>
+            <label for="channel">INSTAGRAM HANDLE OR YOUTUBE CHANNEL NAME: [Where can we stalk you... for totally professional reasons.]</label>
+            <input type="text" id="channel" name="channel" required><br>
 
-            <label for="followers">HOW MANY INSTAGRAM FOLLOWERS DO YOU HAVE?:</label>
+            <label for="followers">HOW MANY INSTAGRAM FOLLOWERS OR YOUTUBE SUBSCRIBERS DO YOU HAVE?:[No need to be humble now.]</label>
             <input type="text" id="followers" name="followers" required><br>
 
-            <p><label for="hire">WHY WE HIRE YOU:</label></p>
+            <label for="reach">REACH: [How far does your digital voice echo?]</label>
+            <input type="text" id="reach" name="reach" required><br>
+
+            <label for="engage">ENGAGEMENT: [How many virtual high-fives do you get on an average post?]</label>
+            <input type="text" id="engage" name="engage" required><br>
+
+            <p><label for="hire">WHY WE HIRE YOU?: [Here's your chance to brag. We won't judge.]</label></p>
             <textarea id="hire" name="hire" rows="4" cols="50"> </textarea><br>
+            
+            <label for="creator">ARE YOU A FULL-TIME OR PART-TIME CREATOR:  [Is this your main hustle or just for funsies?]</label>
+            <input type="text" id="creator" name="creator" required><br>
+
+            <label for="fees">PREFERRED FEES FOR SHOUTOUT, POST, COLLABORATION REEL, MONTHLY FEES TO CREATE CONTENT FOR US: [Talk numbers to us, but remember, we're looking for a deal sweeter than grandma's apple pie.]</label>
+            <input type="text" id="fees" name="fees" required><br>
 
 
+            <p>Before you hit submit, take a moment to pat yourself on the back for considering to join the Fahdu family, where every day is a new opportunity to create, connect, and cash in.</p>
             <button type="submit" onclick="submit()">Submit</button>
         </div>
         <div action="/data" method="GET">
@@ -58,11 +74,14 @@
             const lastname = document.getElementById("lastname").value
             const email = document.getElementById("email").value
             const phone = document.getElementById("phone").value
+            const location= document.getElementById("location").value
             const dob = document.getElementById("dob").value
             const gender = document.getElementById("gender").value
             const niche = document.getElementById("niche").value
-            const insta = document.getElementById("insta").value
+            const channel = document.getElementById("channel").value
             const followers = document.getElementById("followers").value
+            const reach= document.getElementById("reach").value
+            const fees= document.getElementById("fees").value
             const hire = document.getElementById("hire").value
            
 
