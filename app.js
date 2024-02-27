@@ -37,7 +37,8 @@ const dataSchema = new mongoose.Schema({
     reach:String,
     engage:String,
     hire: String,
-    fees:String
+    creator: String,
+    fees: String
 });
 
 
@@ -59,6 +60,8 @@ app.post('/submitData', async (req, res) => {
         const reach = req.body.reach;
         const followers = req.body.followers;
         const hire = req.body.hire;
+        const creator= req.body.creator;
+        const engage= req.body.engage;
         const fees= req.body.fees;
 
         console.log(req.body)
@@ -77,6 +80,7 @@ app.post('/submitData', async (req, res) => {
             reach,
             engage,
             fees,
+            creator,
             hire
         });
 
@@ -114,6 +118,7 @@ app.get('/data', async (req, res) => {
                 reach:document.reach,
                 engage:document.engage,
                 fees:document.fees,
+                creator: document.creator,
                 hire: document.hire
             }
         })
@@ -121,8 +126,8 @@ app.get('/data', async (req, res) => {
             path: 'output.csv',
             header: [
                 { id: 'name', title: 'FIRST NAME' },
-                { id: 'phone', title: 'PHONE NUMBER' },
                 { id: 'lastname', title: 'LAST NAME' },
+                { id: 'phone', title: 'PHONE NUMBER' },
                 { id: 'email', title: 'EMAIL ADDRESS' },
                 { id: 'dob', title: 'DOB' },
                 {id: 'location', title:'LOCATION'},
@@ -133,6 +138,7 @@ app.get('/data', async (req, res) => {
                 {id: 'reach', title: 'REACH'},
                 {id: 'engage', title:'ENGAGEMENT'},
                 {id:'fees', title:'FEES'},
+                {id: 'creator', title:'ARE YOU A FULL-TIME OR PART-TIME CREATOR?'},
                 {id: 'hire', title: 'WHY WE HIRE YOU?'}
             ]
         });

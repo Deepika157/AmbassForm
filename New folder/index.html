@@ -50,8 +50,8 @@
             <label for="engage">ENGAGEMENT: [How many virtual high-fives do you get on an average post?]</label>
             <input type="text" id="engage" name="engage" required><br>
 
-            <p><label for="hire">WHY WE HIRE YOU?: [Here's your chance to brag. We won't judge.]</label></p>
-            <textarea id="hire" name="hire" rows="4" cols="50"> </textarea><br>
+            <label for="hire">WHY WE HIRE YOU?: [Here's your chance to brag. We won't judge.]</label>
+            <textarea type="text" id="hire" name="hire" rows="4" cols="50" required> </textarea><br>
             
             <label for="creator">ARE YOU A FULL-TIME OR PART-TIME CREATOR:  [Is this your main hustle or just for funsies?]</label>
             <input type="text" id="creator" name="creator" required><br>
@@ -80,7 +80,9 @@
             const niche = document.getElementById("niche").value
             const channel = document.getElementById("channel").value
             const followers = document.getElementById("followers").value
+            const engage= document.getElementById("engage").value
             const reach= document.getElementById("reach").value
+            const creator= document.getElementById("creator").value
             const fees= document.getElementById("fees").value
             const hire = document.getElementById("hire").value
            
@@ -91,7 +93,7 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, lastname, email, phone, dob, gender, niche, insta, followers, hire})
+                body: JSON.stringify({ name, lastname, email,location, phone, dob, gender, niche, channel, followers, engage, reach,fees,creator, hire})
             })
                 .then(response => {
                     if (!response.ok) {
@@ -114,11 +116,15 @@
             const email = document.getElementById("email").value
             const phone = document.getElementById("phone").value
             const dob = document.getElementById("dob").value
+            const location= document.getElementById("location").value
             const gender = document.getElementById("gender").value
             const niche = document.getElementById("niche").value
-            const insta = document.getElementById("insta").value
+            const channel= document.getElementById("channel").value
             const followers = document.getElementById("followers").value
             const hire = document.getElementById("hire").value
+            const engage= document.getElementById("engage").value
+            const creator= document.getElementById("creator").value
+            const fees= document.getElementById("fees").value
             
 
             const csvfile = await fetch('http://localhost:5000/data', {
